@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\EmployeeResource;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,7 @@ class EmployeeController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => $emps
+            'message' => EmployeeResource::collection($emps)
         ]);
     }
 }
